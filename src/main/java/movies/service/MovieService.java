@@ -5,6 +5,7 @@ import movies.model.Genre;
 import movies.model.Movie;
 
 import java.util.Collection;
+import java.util.Locale;
 import java.util.stream.Collectors;
 
 public class MovieService {
@@ -26,5 +27,11 @@ public class MovieService {
         return movieRepository.findAll().stream()
                 .filter(movie -> movie.getMinutes() <= length).collect(Collectors.toList());
 
+    }
+
+    public Collection<Movie> findMoviesByName(String name){
+
+        return movieRepository.findAll().stream()
+                .filter(movie -> movie.getName().toLowerCase().contains(name)).collect(Collectors.toList());
     }
 }

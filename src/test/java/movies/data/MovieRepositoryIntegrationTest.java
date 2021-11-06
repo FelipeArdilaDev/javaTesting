@@ -1,6 +1,7 @@
 package movies.data;
 
 import movies.model.Movie;
+import movies.service.MovieService;
 import org.hamcrest.CoreMatchers;
 import org.junit.After;
 import org.junit.Before;
@@ -27,6 +28,8 @@ import static org.junit.Assert.*;
 
     @RunWith(MockitoJUnitRunner.class)
     public class MovieRepositoryIntegrationTest {
+
+        private MovieService movieService;
 
         @InjectMocks
         MovieRepositoryjdbc movieRepository;
@@ -64,7 +67,7 @@ import static org.junit.Assert.*;
         assertThat(movie, CoreMatchers.is(new Movie(2, "Memento", 113, THRILLER)));
     }
 
-    @After
+        @After
     public void tearDown() throws Exception {
         // Remove H2 files --
         final Statement s = dataSource.getConnection().createStatement();
