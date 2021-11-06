@@ -9,25 +9,25 @@ public class PasswordUtilTest {
 
     @Test
     public void weakWhenHasLessThan8Latters() {
-        assertEquals(WEAK,  PasswordUtil.assessPassword("123aa!"));
+        assertEquals(WEAK, PasswordUtil.assessPassword("123aa!"));
 
     }
 
     @Test
     public void weakWhenHasOnlyLatters() {
-        assertEquals(WEAK,  PasswordUtil.assessPassword("abcdefgh"));
+        assertEquals(WEAK, PasswordUtil.assessPassword("abcdefgh"));
 
     }
 
     @Test
     public void MediumWhenHasLattersAndNumbers() {
-        assertEquals(MEDIUM,  PasswordUtil.assessPassword("abcd1234"));
+        assertEquals(MEDIUM, PasswordUtil.assessPassword("abcd1234"));
 
     }
 
     @Test
     public void stromgWhenHasLattersAndSymbols() {
-        assertEquals(STRONG,  PasswordUtil.assessPassword("abcd123!"));
+        assertEquals(STRONG, PasswordUtil.assessPassword("abcd123!"));
 
     }
 }
